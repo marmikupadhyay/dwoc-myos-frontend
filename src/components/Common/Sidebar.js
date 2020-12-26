@@ -6,10 +6,11 @@ import CodeIcon from '@material-ui/icons/Code';
 import FindInPageIcon from '@material-ui/icons/FindInPage';
 import ListAltIcon from '@material-ui/icons/ListAlt';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
 	navWrapper: {
-		height: '100vh',
+		height: 'calc(100vh - 3.5em)',
 		width: '60px',
 		background: theme.palette.background.primary,
 		color: theme.palette.font.light,
@@ -18,10 +19,9 @@ const useStyles = makeStyles((theme) => ({
 		color: theme.palette.accent.secondary,
 		fontSize: '3em',
 		margin: '10px 0',
+		width: '100%',
 	},
-	upperDiv: {
-		marginTop: '10vh',
-	},
+	upperDiv: {},
 }));
 
 function Sidebar() {
@@ -36,13 +36,19 @@ function Sidebar() {
 				className={classes.upperDiv}
 				xs={12}>
 				<Grid item>
-					<DashboardIcon className={classes.navIcons} />
+					<Link to='/dashboard'>
+						<DashboardIcon className={classes.navIcons} />
+					</Link>
 				</Grid>
 				<Grid item>
-					<CodeIcon className={classes.navIcons} />
+					<Link to='/workspace'>
+						<CodeIcon className={classes.navIcons} />
+					</Link>
 				</Grid>
 				<Grid item>
-					<FindInPageIcon className={classes.navIcons} />
+					<Link to='/feed'>
+						<FindInPageIcon className={classes.navIcons} />
+					</Link>
 				</Grid>
 			</Grid>
 			<Grid
@@ -53,7 +59,9 @@ function Sidebar() {
 				xs={12}
 				justify='flex-end'>
 				<Grid item>
-					<ExitToAppIcon className={classes.navIcons} />
+					<Link to='/login'>
+						<ExitToAppIcon className={classes.navIcons} />
+					</Link>
 				</Grid>
 			</Grid>
 		</Grid>

@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/styles';
 import { Grid } from '@material-ui/core';
 import Sidebar from '../Common/Sidebar';
+import Topbar from '../Common/Topbar';
 
 const useStyles = makeStyles((theme) => ({
 	mainBox: {
@@ -16,6 +17,7 @@ function Dashboard() {
 	return (
 		<div className={classes.mainBox}>
 			<Grid container className={classes.container}>
+				<Topbar title='Dashboard' />
 				<Sidebar />
 			</Grid>
 		</div>

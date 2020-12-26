@@ -9,6 +9,8 @@ import {
 	Redirect,
 } from 'react-router-dom';
 import Dashboard from './components/Dashboard/Dashboard';
+import Workspace from './components/Workspace/Workspace';
+import Feed from './components/Feed/Feed';
 import Loginpage from './components/Auth/Loginpage';
 
 const theme = createMuiTheme({
@@ -39,6 +41,8 @@ function App() {
 					<Switch>
 						<Route path='/login' component={Loginpage} />
 						<Route path='/dashboard' component={Dashboard} />
+						<Route path='/workspace' component={Workspace} />
+						<Route path='/feed' component={Feed} />
 						<Route
 							path='/'
 							render={() =>

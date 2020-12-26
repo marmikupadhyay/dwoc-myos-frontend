@@ -8,6 +8,7 @@ const useStyles = makeStyles((theme) => ({
 		height: '3.5em',
 		background: theme.palette.background.primary,
 		color: theme.palette.font.light,
+		position: 'fixed',
 	},
 	siteIconBox: {
 		width: '60px',

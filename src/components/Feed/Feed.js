@@ -9,16 +9,24 @@ const useStyles = makeStyles((theme) => ({
 		minHeight: '100vh',
 		background: theme.palette.background.secondary,
 	},
-	container: {},
+	container: {
+		paddingTop: '3.5em',
+	},
+	contentSection: {
+		marginLeft: '60px',
+	},
 }));
 
 function Feed() {
 	const classes = useStyles();
 	return (
 		<div className={classes.mainBox}>
+			<Topbar title='Feed' />
 			<Grid container className={classes.container}>
-				<Topbar title='Feed' />
 				<Sidebar />
+				<Grid item container className={classes.contentSection}>
+					Feed
+				</Grid>
 			</Grid>
 		</div>
 	);

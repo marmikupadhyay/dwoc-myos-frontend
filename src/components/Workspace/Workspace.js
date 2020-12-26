@@ -9,16 +9,24 @@ const useStyles = makeStyles((theme) => ({
 		minHeight: '100vh',
 		background: theme.palette.background.secondary,
 	},
-	container: {},
+	container: {
+		paddingTop: '3.5em',
+	},
+	contentSection: {
+		marginLeft: '60px',
+	},
 }));
 
 function Workspace() {
 	const classes = useStyles();
 	return (
 		<div className={classes.mainBox}>
+			<Topbar title='Workspace' />
 			<Grid container className={classes.container}>
-				<Topbar title='Workspace' />
 				<Sidebar />
+				<Grid item container className={classes.contentSection}>
+					Workspace
+				</Grid>
 			</Grid>
 		</div>
 	);

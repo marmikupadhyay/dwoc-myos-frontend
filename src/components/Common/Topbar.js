@@ -9,6 +9,7 @@ const useStyles = makeStyles((theme) => ({
 		background: theme.palette.background.primary,
 		color: theme.palette.font.light,
 		position: 'fixed',
+		zIndex: 20,
 	},
 	siteIconBox: {
 		width: '60px',

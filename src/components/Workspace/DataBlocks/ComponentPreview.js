@@ -9,10 +9,7 @@ import {
 	ListItemText,
 	Paper,
 } from '@material-ui/core';
-import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
-import NoteIcon from '@material-ui/icons/Note';
-import VisibilityIcon from '@material-ui/icons/Visibility';
-import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
+import WidgetsIcon from '@material-ui/icons/Widgets';
 
 const useStyles = makeStyles((theme) => ({
 	dataCardContainer: {
@@ -50,6 +47,11 @@ const useStyles = makeStyles((theme) => ({
 		background: theme.palette.background.primary,
 		color: theme.palette.font.light,
 		fontFamily: 'Roboto',
+		minHeight: '200px',
+	},
+	defaultItem: {
+		padding: '1em',
+		textAlign: 'center',
 	},
 }));
 
@@ -84,7 +86,7 @@ function ComponentPriview() {
 						<ListItem>
 							<ListItemAvatar>
 								<Avatar className={classes.iconBox}>
-									<NoteIcon
+									<WidgetsIcon
 										fontSize='large'
 										className={classes.icon}
 									/>
@@ -105,53 +107,13 @@ function ComponentPriview() {
 					<Grid
 						item
 						container
-						direction='column'
+						alignItems='center'
 						xs={12}
 						className={classes.dataCardBody}>
 						<Grid item xs={12}>
-							{/* The Author Item */}
-							<ListItem>
-								<ListItemAvatar>
-									<Avatar className={classes.iconBox2}>
-										<AssignmentIndIcon
-											fontSize='large'
-											className={classes.icon2}
-										/>
-									</Avatar>
-								</ListItemAvatar>
-								<ListItemText
-									primaryTypographyProps={{
-										style: listItemText.primaryDark,
-									}}
-									secondaryTypographyProps={{
-										style: listItemText.secondaryLight,
-									}}
-									primary='Author'
-									secondary='Some Author'
-								/>
-							</ListItem>
-
-							{/* Visbitilty Item */}
-							<ListItem>
-								<ListItemAvatar>
-									<Avatar className={classes.iconBox2}>
-										<VisibilityIcon
-											fontSize='large'
-											className={classes.icon2}
-										/>
-									</Avatar>
-								</ListItemAvatar>
-								<ListItemText
-									primaryTypographyProps={{
-										style: listItemText.primaryDark,
-									}}
-									secondaryTypographyProps={{
-										style: listItemText.secondaryLight,
-									}}
-									primary='Visibility'
-									secondary='private'
-								/>
-							</ListItem>
+							<Paper className={classes.defaultItem}>
+								Select a Component Show it Here
+							</Paper>
 						</Grid>
 					</Grid>
 				</Grid>

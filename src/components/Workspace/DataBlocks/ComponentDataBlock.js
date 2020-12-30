@@ -68,18 +68,19 @@ const useStyles = makeStyles((theme) => ({
 	},
 	nameSelector: {
 		background: 'white',
-		outline: 'none',
+		outline: 0,
 		border: 'none',
 		'&focus': {
-			outline: 'none',
+			outline: 0,
 			border: 'none',
 		},
 	},
+	//The Modal Styles
 	paper: {
 		position: 'absolute',
 		width: 400,
 		backgroundColor: theme.palette.background.paper,
-		top: '25%',
+		top: '50%',
 		left: '50%',
 		transform: 'translate(-50%,-50%)',
 		boxShadow: theme.shadows[5],
@@ -87,15 +88,40 @@ const useStyles = makeStyles((theme) => ({
 		outline: 0,
 		border: 'none',
 	},
+	heading: {
+		fontFamily: 'Roboto',
+		padding: '.5em',
+		paddingBottom: '0.25em',
+		position: 'relative',
+		marginBottom: '1em',
+		'&::after': {
+			content: "' '",
+			position: 'absolute',
+			width: '50%',
+			height: '2px',
+			bottom: '0',
+			left: '0',
+			borderBottom: `3px solid ${theme.palette.accent.primary}`,
+		},
+	},
 	textField: {
 		backgroundColor: 'white',
 		borderRadius: '8px',
-		outline: 'none',
+		outline: 0,
 		border: 'none',
+		marginBottom: '1.5em',
 	},
 	button: {
 		background: theme.palette.accent.secondary,
 		width: '100%',
+		transition: '0.5s',
+		'&:hover': {
+			backgroundImage:
+				'linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%)',
+			fontWeight: 'bold',
+			color: theme.palette.accent.primary,
+			transform: 'scale(1.05)',
+		},
 	},
 }));
 
@@ -235,6 +261,9 @@ function ComponentDataBlock() {
 							<Fade in={open}>
 								<div className={classes.paper}>
 									{/* The Input */}
+									<h1 className={classes.heading}>
+										Make A New Style
+									</h1>
 									<FormControl
 										className={classes.nameSelectorForm}>
 										<TextField

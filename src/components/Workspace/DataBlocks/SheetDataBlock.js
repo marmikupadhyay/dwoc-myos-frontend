@@ -12,14 +12,12 @@ import {
 import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
 import NoteIcon from '@material-ui/icons/Note';
 import VisibilityIcon from '@material-ui/icons/Visibility';
-import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import ColorizeIcon from '@material-ui/icons/Colorize';
 
 const useStyles = makeStyles((theme) => ({
 	dataCardContainer: {
 		margin: '1em',
 		// color: theme.palette.font.light,
+		height: 'max-content',
 	},
 	dataCard: {},
 	dataCardTitle: {

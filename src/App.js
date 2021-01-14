@@ -13,7 +13,7 @@ import Workspace from './components/Workspace/Workspace';
 import Feed from './components/Feed/Feed';
 import Loginpage from './components/Auth/Loginpage';
 
-const theme = createMuiTheme({
+ const theme = createMuiTheme({
 	palette: {
 		accent: {
 			primary: '#EE562F',
@@ -27,15 +27,17 @@ const theme = createMuiTheme({
 		font: {
 			light: '#ffffff',
 		},
+		type: 'dark',
 	},
-});
+	
+ });
 
 function App() {
 	// Simulating Auth Check For Now
 	const isLoggedIn = true;
 
 	return (
-		<ThemeProvider theme={theme}>
+		 <ThemeProvider theme={theme}>
 			<div className='App'>
 				<Router>
 					<Switch>
@@ -56,7 +58,7 @@ function App() {
 					</Switch>
 				</Router>
 			</div>
-		</ThemeProvider>
+		 </ThemeProvider>
 	);
 }
 

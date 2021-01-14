@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
+//import CardContent from '@material-ui/core/CardContent';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
       padding: 0,
       margin: theme.spacing(3),
       fontSize: '200px', 
-      color: theme.palette.background.secondary,
+      color: theme.palette.background.tertiary,
     },
     media: {
         height: 140,

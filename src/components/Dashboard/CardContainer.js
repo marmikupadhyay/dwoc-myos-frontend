@@ -25,7 +25,7 @@ function CardContainer() {
 	return (
 		<Grid item container xs={12} md={9}  >
 			<Container>
-			<form className={classes.root} noValidate autoComplete="off" className = {classes.Searcher}>
+			<form className={classes.root} noValidate autoComplete="off" >
       			<TextField id="standard-basic" label="Search" style = {{color: "white"}}/>
     			</form>
 				<Cards/>

@@ -7,17 +7,11 @@ import Cards from './Cards';
 const useStyles = makeStyles((theme) => ({
 	mainBox: {
 		minHeight: '100vh',
-		background: theme.palette.background.primary,
 	},
-	container: {},
 	Searcher: {
 		padding: '10px',
 		textAlign: "center",
-		color: theme.palette.font.light,
 	},
-	texter: {
-		color: theme.palette.common.white
-	}
 }));
 
 function CardContainer() {
@@ -25,7 +19,7 @@ function CardContainer() {
 	return (
 		<Grid item container xs={12} md={9}  >
 			<Container>
-			<form className={classes.root} noValidate autoComplete="off" className = {classes.Searcher}>
+			<form className={classes.root} noValidate autoComplete="off" >
       			<TextField id="standard-basic" label="Search" style = {{color: "white"}}/>
     			</form>
 				<Cards/>

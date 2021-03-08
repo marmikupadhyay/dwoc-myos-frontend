@@ -9,7 +9,6 @@ import CardContainer from './CardContainer';
 const useStyles = makeStyles((theme) => ({
 	mainBox: {
 		minHeight: '100vh',
-		background: theme.palette.background.secondary,
 	},
 	contentSection: {
 		marginLeft: '60px',

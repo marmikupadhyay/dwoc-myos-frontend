@@ -5,7 +5,6 @@ import { Grid } from '@material-ui/core';
 const useStyles = makeStyles((theme) => ({
 	mainBox: {
 		minHeight: '100vh',
-		background: theme.palette.background.secondary,
 		borderLeft: '2px solid white',
 	},
 	container: {},

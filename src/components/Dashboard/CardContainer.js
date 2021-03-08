@@ -7,17 +7,11 @@ import Cards from './Cards';
 const useStyles = makeStyles((theme) => ({
 	mainBox: {
 		minHeight: '100vh',
-		background: theme.palette.background.primary,
 	},
-	container: {},
 	Searcher: {
 		padding: '10px',
 		textAlign: "center",
-		color: theme.palette.font.light,
 	},
-	texter: {
-		color: theme.palette.common.white
-	}
 }));
 
 function CardContainer() {

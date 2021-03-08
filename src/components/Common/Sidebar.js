@@ -12,12 +12,9 @@ const useStyles = makeStyles((theme) => ({
 	navWrapper: {
 		height: 'calc(100vh - 3.5em)',
 		width: '60px',
-		background: theme.palette.background.primary,
-		color: theme.palette.font.light,
 		position: 'fixed',
 	},
 	navIcons: {
-		color: theme.palette.accent.secondary,
 		fontSize: '3em',
 		margin: '10px 0',
 		width: '100%',

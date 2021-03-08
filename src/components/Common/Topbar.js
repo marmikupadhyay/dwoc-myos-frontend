@@ -6,14 +6,11 @@ import ListAltIcon from '@material-ui/icons/ListAlt';
 const useStyles = makeStyles((theme) => ({
 	topWrapper: {
 		height: '3.5em',
-		background: theme.palette.background.primary,
-		color: theme.palette.font.light,
 		position: 'fixed',
 		zIndex: 20,
 	},
 	siteIconBox: {
-		width: '60px',
-		background: theme.palette.background.secondary,
+		width: '60px'
 	},
 	logoImg: {
 		width: '100%',

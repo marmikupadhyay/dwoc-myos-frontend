@@ -7,8 +7,7 @@ import DataCardContainer from './DataCardContainer';
 
 const useStyles = makeStyles((theme) => ({
 	mainBox: {
-		minHeight: '100vh',
-		background: theme.palette.background.secondary,
+		minHeight: '100vh'
 	},
 	container: {
 		paddingTop: '3.5em',

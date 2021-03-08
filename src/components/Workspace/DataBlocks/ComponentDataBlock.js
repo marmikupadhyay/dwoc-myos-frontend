@@ -28,38 +28,30 @@ import SaveIcon from '@material-ui/icons/Save';
 const useStyles = makeStyles((theme) => ({
 	dataCardContainer: {
 		margin: '1em',
-		// color: theme.palette.font.light,
 	},
 	dataCard: {},
 	dataCardTitle: {
 		fontSize: '1.5em',
 		fontFamily: 'Roboto',
-		// background: theme.palette.background.primary,
-		// color: theme.palette.font.light,
 		backgroundImage: 'linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%)',
 	},
 	iconBox: {
-		background: theme.palette.accent.primary,
 		marginRight: '1em',
 		width: '50px',
 		height: '50px',
 	},
 	icon: {
-		color: theme.palette.background.secondary,
+		//color:'rgba(0,0,0,0.8)',
 	},
 	iconBox2: {
-		background: theme.palette.background.secondary,
 		marginRight: '1em',
 		width: '50px',
 		height: '50px',
 	},
 	icon2: {
-		color: theme.palette.accent.primary,
 	},
 	dataCardBody: {
 		padding: '1em',
-		background: theme.palette.background.primary,
-		color: theme.palette.font.light,
 		fontFamily: 'Roboto',
 	},
 	nameSelectorForm: {
@@ -79,7 +71,6 @@ const useStyles = makeStyles((theme) => ({
 	paper: {
 		position: 'absolute',
 		width: 400,
-		backgroundColor: theme.palette.background.paper,
 		top: '50%',
 		left: '50%',
 		transform: 'translate(-50%,-50%)',
@@ -100,8 +91,7 @@ const useStyles = makeStyles((theme) => ({
 			width: '50%',
 			height: '2px',
 			bottom: '0',
-			left: '0',
-			borderBottom: `3px solid ${theme.palette.accent.primary}`,
+			left: '0'
 		},
 	},
 	textField: {
@@ -112,14 +102,12 @@ const useStyles = makeStyles((theme) => ({
 		marginBottom: '1.5em',
 	},
 	button: {
-		background: theme.palette.accent.secondary,
 		width: '100%',
 		transition: '0.5s',
 		'&:hover': {
 			backgroundImage:
-				'linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%)',
+				'linear-gradient(120deg, #84fab0 0%, #00356B 100%)',
 			fontWeight: 'bold',
-			color: theme.palette.accent.primary,
 			transform: 'scale(1.05)',
 		},
 	},
@@ -129,6 +117,7 @@ const listItemText = {
 	primary: {
 		fontSize: '1em',
 		fontWeight: 'bold',
+		
 	},
 	secondary: {
 		fontSize: '1em',

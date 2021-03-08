@@ -8,7 +8,6 @@ import ComponentPriview from './DataBlocks/ComponentPreview';
 const useStyles = makeStyles((theme) => ({
 	mainBox: {
 		marginTop: '1em',
-		background: theme.palette.background.secondary,
 	},
 	categoryBox: {
 		margin: '1em',

@@ -14,38 +14,31 @@ import WidgetsIcon from '@material-ui/icons/Widgets';
 const useStyles = makeStyles((theme) => ({
 	dataCardContainer: {
 		margin: '1em',
-		// color: theme.palette.font.light,
 	},
 	dataCard: {},
 	dataCardTitle: {
 		fontSize: '1.5em',
 		fontFamily: 'Roboto',
-		// background: theme.palette.background.primary,
-		// color: theme.palette.font.light,
+
 		backgroundImage: 'linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%)',
 	},
 	iconBox: {
-		background: theme.palette.accent.primary,
 		marginRight: '1em',
 		width: '50px',
 		height: '50px',
 	},
 	icon: {
-		color: theme.palette.background.secondary,
 	},
 	iconBox2: {
-		background: theme.palette.background.secondary,
+
 		marginRight: '1em',
 		width: '50px',
 		height: '50px',
 	},
 	icon2: {
-		color: theme.palette.accent.primary,
 	},
 	dataCardBody: {
 		padding: '1em',
-		background: theme.palette.background.primary,
-		color: theme.palette.font.light,
 		fontFamily: 'Roboto',
 		minHeight: '200px',
 	},

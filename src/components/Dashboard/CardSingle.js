@@ -19,7 +19,6 @@ const useStyles = makeStyles((theme) => ({
       padding: 0,
       margin: theme.spacing(3),
       fontSize: '200px', 
-      color: theme.palette.background.tertiary,
     },
     media: {
         height: 140,

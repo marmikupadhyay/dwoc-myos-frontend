@@ -1,17 +1,25 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
-import { Grid , TextField, Container } from '@material-ui/core';
+import { Grid , TextField, Container, InputAdornment } from '@material-ui/core';
 import Cards from './Cards';
+import clsx from  'clsx';
+import { CenterFocusStrong, Search } from '@material-ui/icons';
 
 
 const useStyles = makeStyles((theme) => ({
 	mainBox: {
 		minHeight: '100vh',
 	},
-	Searcher: {
-		padding: '10px',
-		textAlign: "center",
+	formDisplay: {
+		display: "flex",
+		alignItems: "center",
+		flexDirection: "row",
+		justifyContent: 'center',
+		padding: '1.5em'
 	},
+	searcher: {
+		width: '100%'
+	}
 }));
 
 function CardContainer() {
@@ -19,8 +27,16 @@ function CardContainer() {
 	return (
 		<Grid item container xs={12} md={9}  >
 			<Container>
-			<form className={classes.root} noValidate autoComplete="off" >
-      			<TextField id="standard-basic" label="Search" style = {{color: "white"}}/>
+			<form className={ clsx(classes.root,classes.formDisplay)} noValidate autoComplete="off" >
+      			<TextField id="standard-basic" className = {classes.searcher} 
+				  InputProps={{
+						startAdornment: (
+							<InputAdornment position="start">
+								<Search color = "primary" />
+							</InputAdornment>
+          					),
+        				}} 
+				/>
     			</form>
 				<Cards/>
 			</Container>

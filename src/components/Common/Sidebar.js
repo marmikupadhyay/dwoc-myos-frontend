@@ -10,14 +10,17 @@ import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
 	navWrapper: {
-		height: 'calc(100vh - 3.5em)',
+		height: 'calc(100vh - 3em)',
 		width: '60px',
 		position: 'fixed',
+		backgroundColor: '#212121',
+		padding: '0.5em'
 	},
 	navIcons: {
 		fontSize: '3em',
 		margin: '10px 0',
 		width: '100%',
+		color: theme.palette.primary.main
 	},
 	upperDiv: {},
 }));
@@ -34,8 +37,8 @@ function Sidebar() {
 				className={classes.upperDiv}
 				xs={12}>
 				<Grid item>
-					<Link to='/dashboard'>
-						<DashboardIcon className={classes.navIcons} />
+					<Link to='/dashboard' >
+						<DashboardIcon className={classes.navIcons}/>
 					</Link>
 				</Grid>
 				<Grid item>

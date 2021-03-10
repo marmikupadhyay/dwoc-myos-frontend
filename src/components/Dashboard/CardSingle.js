@@ -19,12 +19,24 @@ const useStyles = makeStyles((theme) => ({
       padding: 0,
       margin: theme.spacing(3),
       fontSize: '200px', 
+      backgroundColor: "rgba(33,33,33,0.9)",
+      fontFamily: "Poppins"
+    },
+    cardTextHeader:{
+        fontFamily: "Poppins",
+        fontWeight: "500"  
     },
     media: {
         height: 140,
         padding:0,
         margin:0
-    }
+    },
+    actions: {
+        backgroundColor: "rgba(33,33,33,0.9)"
+    },
+    editButtonColor: {
+        color: theme.palette.primary.dark
+    },
   }));
 
 export default function CardSingle(props){
@@ -36,6 +48,9 @@ export default function CardSingle(props){
                 <CardHeader
                 title= {props.name}
                 subheader= {props.visibility}
+                classes = {{
+                    title: classes.cardTextHeader
+                }}
                 />
                 <CardActionArea>
                 <CardMedia
@@ -47,11 +62,11 @@ export default function CardSingle(props){
                     <IconButton>
                         <KeyboardArrowDownIcon/>
                     </IconButton>
-                    <IconButton>
-                        <DeleteIcon/>
-                    </IconButton>
-                    <IconButton>
+                    <IconButton className={classes.editButtonColor}>
                          <EditIcon/>
+                    </IconButton>
+                    <IconButton color = "secondary">
+                        <DeleteIcon/>
                     </IconButton>
                    
                 </CardActions>

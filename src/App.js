@@ -17,7 +17,15 @@ import Loginpage from './components/Auth/Loginpage';
 const theme = createMuiTheme({
 	palette: {
 	  type: "dark",
+	  primary:{
+		light:'#00ff7f',
+		main:'#14eb7f',
+		dark: '#27d87f'
+	},
+	typography: {
+		fontFamily: 'Poppins'
 	}
+	},
   });
 
 function App() {

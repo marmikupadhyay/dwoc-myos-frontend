@@ -5,21 +5,23 @@ import ListAltIcon from '@material-ui/icons/ListAlt';
 
 const useStyles = makeStyles((theme) => ({
 	topWrapper: {
-		height: '3.5em',
+		height: '4.5em',
 		position: 'fixed',
 		zIndex: 20,
+		backgroundColor: '#212121',
 	},
 	siteIconBox: {
 		width: '60px'
 	},
 	logoImg: {
 		width: '100%',
-		height: '3.5em',
+		height: '4.5em',
 	},
 	heading: {
 		fontSize: '2em',
 		marginLeft: '1em',
-		fontFamily: 'Roboto',
+		fontFamily: 'Poppins',
+		fontWeight: '700',
 		letterSpacing: '1px',
 	},
 }));

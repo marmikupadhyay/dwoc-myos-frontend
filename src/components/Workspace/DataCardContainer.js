@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/styles';
 import { Grid, Paper } from '@material-ui/core';
 import SheetDataBlock from './DataBlocks/SheetDataBlock';
 import ComponentDataBlock from './DataBlocks/ComponentDataBlock';
-import ComponentPriview from './DataBlocks/ComponentPreview';
+import ComponentPreview from './DataBlocks/ComponentPreview';
 
 const useStyles = makeStyles((theme) => ({
 	mainBox: {
@@ -17,20 +17,27 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-function DataCardContainer() {
+function DataCardContainer(props) {
 	const classes = useStyles();
-
+	const { sheetId, sheetData, updateSheetData, activeComponent, updateActiveComponent, saveActiveComponent } = props;
 	return (
 		<Grid container className={classes.mainBox} direction='column'>
 			<Grid container item justify='space-around'>
 				{/* The Sheet Details Block */}
-				<SheetDataBlock />
+				<SheetDataBlock sheetData={sheetData} />
 
 				{/* The Single Item Details Block */}
-				<ComponentDataBlock />
+				<ComponentDataBlock
+					sheetData={sheetData}
+					updateSheetData={updateSheetData}
+					activeComponent={activeComponent}
+					updateActiveComponent={updateActiveComponent}
+					saveActiveComponent={saveActiveComponent}
+					sheetId={sheetId}
+				/>
 
 				{/* The Code Preview Block */}
-				<ComponentPriview />
+				<ComponentPreview activeComponent={activeComponent} sheetData={sheetData} />
 			</Grid>
 			<Grid container item>
 				<Grid item xs={12} className={classes.categoryBox}>

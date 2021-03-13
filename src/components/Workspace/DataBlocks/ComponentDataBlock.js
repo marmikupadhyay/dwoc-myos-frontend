@@ -1,22 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles, withStyles } from '@material-ui/styles';
 import {
 	Avatar,
 	Button,
-	Backdrop,
-	Fade,
 	Grid,
-	List,
 	ListItem,
 	ListItemAvatar,
 	ListItemText,
 	Paper,
 	MenuItem,
 	FormControl,
-	Modal,
 	Select,
-	Typography,
-	TextField,
 } from '@material-ui/core';
 import ExtensionIcon from '@material-ui/icons/Extension';
 import TuneIcon from '@material-ui/icons/Tune';
@@ -24,6 +18,10 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ColorizeIcon from '@material-ui/icons/Colorize';
 import AddIcon from '@material-ui/icons/Add';
 import SaveIcon from '@material-ui/icons/Save';
+import axios from 'axios';
+import qs from 'querystring';
+
+import CreateModal from './CreateModal';
 
 const useStyles = makeStyles((theme) => ({
 	dataCardContainer: {
@@ -48,8 +46,6 @@ const useStyles = makeStyles((theme) => ({
 		width: '50px',
 		height: '50px',
 	},
-	icon2: {
-	},
 	dataCardBody: {
 		padding: '1em',
 		fontFamily: 'Roboto',
@@ -59,47 +55,13 @@ const useStyles = makeStyles((theme) => ({
 		marginBottom: '10px',
 	},
 	nameSelector: {
-		background: 'white',
+		// background: 'white',
 		outline: 0,
 		border: 'none',
 		'&focus': {
 			outline: 0,
 			border: 'none',
 		},
-	},
-	//The Modal Styles
-	paper: {
-		position: 'absolute',
-		width: 400,
-		top: '50%',
-		left: '50%',
-		transform: 'translate(-50%,-50%)',
-		boxShadow: theme.shadows[5],
-		padding: theme.spacing(3),
-		outline: 0,
-		border: 'none',
-	},
-	heading: {
-		fontFamily: 'Roboto',
-		padding: '.5em',
-		paddingBottom: '0.25em',
-		position: 'relative',
-		marginBottom: '1em',
-		'&::after': {
-			content: "' '",
-			position: 'absolute',
-			width: '50%',
-			height: '2px',
-			bottom: '0',
-			left: '0'
-		},
-	},
-	textField: {
-		backgroundColor: 'white',
-		borderRadius: '8px',
-		outline: 0,
-		border: 'none',
-		marginBottom: '1.5em',
 	},
 	button: {
 		width: '100%',
@@ -117,7 +79,6 @@ const listItemText = {
 	primary: {
 		fontSize: '1em',
 		fontWeight: 'bold',
-		
 	},
 	secondary: {
 		fontSize: '1em',
@@ -134,11 +95,18 @@ const listItemText = {
 	},
 };
 
-function ComponentDataBlock() {
+function ComponentDataBlock(props) {
 	const classes = useStyles();
-
-	const [compName, setCompName] = React.useState(0);
-	const [open, setOpen] = React.useState(false);
+	const {
+		sheetId,
+		sheetData,
+		updateSheetData,
+		activeComponent,
+		updateActiveComponent,
+		saveActiveComponent
+	} = props;
+	const [compName, setCompName] = useState(0);
+	const [open, setOpen] = useState(false);
 
 	const handleOpen = () => {
 		setOpen(true);
@@ -148,8 +116,40 @@ function ComponentDataBlock() {
 		setOpen(false);
 	};
 
-	const handleChange = (event) => {
+	const handleCreateBlockFormSubmit = (newBlockName, type) => {		
+		const formData = {
+			blockName: type + newBlockName,
+		};
+		axios
+			.post(
+				`http://localhost:8000/api/sheet/block/new/${sheetId}`,
+				qs.stringify(formData),
+				{
+					headers: {
+						'Content-type': 'application/x-www-form-urlencoded',
+					},
+				}
+			)
+			.then((res) => {
+				updateSheetData(res.data.data);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	};
+
+	const handleDropDownChange = (event) => {
+		updateActiveComponent(event.currentTarget.dataset.value);
 		setCompName(event.target.value);
+	};
+
+	const getMenuOptions = () => {
+		if (Object.keys(sheetData).length !== 0) {
+			let htmlArr = sheetData.sheetData.map((block) => {
+				return <MenuItem value={block._id}>{block.name}</MenuItem>;
+			});
+			return htmlArr;
+		} else return [];
 	};
 
 	return (
@@ -175,7 +175,7 @@ function ComponentDataBlock() {
 									style: listItemText.secondary,
 								}}
 								primary='Component Details'
-								secondary='.data-card-container'
+								secondary={activeComponent.name}
 							/>
 						</ListItem>
 					</Grid>
@@ -203,7 +203,7 @@ function ComponentDataBlock() {
 									style: listItemText.secondaryLight,
 								}}
 								primary='Type'
-								secondary='class'
+								secondary={activeComponent.type}
 							/>
 						</ListItem>
 
@@ -225,54 +225,24 @@ function ComponentDataBlock() {
 									IconComponent={ExpandMoreIcon}
 									variant='outlined'
 									value={compName}
-									onChange={handleChange}>
+									onChange={handleDropDownChange}>
 									<MenuItem value={0} disabled>
 										Select Component
 									</MenuItem>
-									<MenuItem value={1}>Sketch</MenuItem>
-									<MenuItem value={2}>Photoshop</MenuItem>
-									<MenuItem value={3}>Framer</MenuItem>
+									{getMenuOptions()}
 								</Select>
 							</FormControl>
 						</ListItem>
 
 						{/* Create New Component */}
-						<Modal
+						<CreateModal
 							open={open}
-							onClose={handleClose}
-							closeAfterTransition
-							BackdropComponent={Backdrop}
-							BackdropProps={{
-								timeout: 500,
-							}}
-							aria-labelledby='simple-modal-title'
-							aria-describedby='simple-modal-description'>
-							<Fade in={open}>
-								<div className={classes.paper}>
-									{/* The Input */}
-									<h1 className={classes.heading}>
-										Make A New Style
-									</h1>
-									<FormControl
-										className={classes.nameSelectorForm}>
-										<TextField
-											id='outlined-basic'
-											className={classes.textField}
-											label='New Component Name'
-											variant='outlined'
-										/>
-										<Button
-											variant='contained'
-											startIcon={<AddIcon />}
-											style={{ marginTop: '10px' }}
-											className={classes.button}
-											onClick={handleOpen}>
-											Create
-										</Button>
-									</FormControl>
-								</div>
-							</Fade>
-						</Modal>
+							handleOpen={handleOpen}
+							handleClose={handleClose}
+							handleCreateBlockFormSubmit={
+								handleCreateBlockFormSubmit
+							}
+						/>
 
 						{/* Buttons */}
 						<ListItem>
@@ -292,7 +262,10 @@ function ComponentDataBlock() {
 										variant='contained'
 										size='large'
 										startIcon={<SaveIcon />}
-										className={classes.button}>
+										className={classes.button}
+										onClick={saveActiveComponent}
+										disabled={activeComponent.hasOwnProperty('default')}
+										>
 										Save
 									</Button>
 								</Grid>

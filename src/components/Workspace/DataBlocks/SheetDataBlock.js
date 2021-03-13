@@ -77,9 +77,13 @@ const listItemText = {
 	},
 };
 
-function SheetDataBlock() {
+function SheetDataBlock(props) {
 	const classes = useStyles();
-
+	const sheetData = props.sheetData;
+	let author = "";
+	if(Object.keys(sheetData).length !== 0)
+		author = sheetData.author.username;
+	
 	return (
 		<Grid item xs={12} md={6} lg={4}>
 			<Paper elevation={3} className={classes.dataCardContainer}>
@@ -103,7 +107,7 @@ function SheetDataBlock() {
 									style: listItemText.secondary,
 								}}
 								primary='Sheet Details'
-								secondary='sheetname.css'
+								secondary={`${sheetData.filename}.css`}
 							/>
 						</ListItem>
 					</Grid>
@@ -132,7 +136,7 @@ function SheetDataBlock() {
 										style: listItemText.secondaryLight,
 									}}
 									primary='Author'
-									secondary='Some Author'
+									secondary={author}
 								/>
 							</ListItem>
 
@@ -154,7 +158,7 @@ function SheetDataBlock() {
 										style: listItemText.secondaryLight,
 									}}
 									primary='Visibility'
-									secondary='private'
+									secondary={sheetData.isPublic?"Public":"Private"}
 								/>
 							</ListItem>
 						</Grid>

@@ -27,16 +27,13 @@ const useStyles = makeStyles((theme) => ({
 		width: '50px',
 		height: '50px',
 	},
-	icon: {
-	},
+	icon: {},
 	iconBox2: {
-
 		marginRight: '1em',
 		width: '50px',
 		height: '50px',
 	},
-	icon2: {
-	},
+	icon2: {},
 	dataCardBody: {
 		padding: '1em',
 		fontFamily: 'Roboto',
@@ -68,8 +65,9 @@ const listItemText = {
 	},
 };
 
-function ComponentPriview() {
+function ComponentPreview(props) {
 	const classes = useStyles();
+	const { activeComponent } = props;
 	return (
 		<Grid item xs={12} md={6} lg={4}>
 			<Paper elevation={3} className={classes.dataCardContainer}>
@@ -93,7 +91,7 @@ function ComponentPriview() {
 									style: listItemText.secondary,
 								}}
 								primary='Component Preview'
-								secondary='.data-card-container'
+								secondary={activeComponent.name}
 							/>
 						</ListItem>
 					</Grid>
@@ -115,4 +113,4 @@ function ComponentPriview() {
 	);
 }
 
-export default ComponentPriview;
+export default ComponentPreview;

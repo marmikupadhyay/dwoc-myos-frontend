@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import purple from '@material-ui/core/colors/purple';
@@ -31,6 +31,8 @@ const theme = createMuiTheme({
 function App() {
 	// Simulating Auth Check For Now
 	const isLoggedIn = true;
+	// Temporary (set ur own while testing ) till api call is made
+	const [currentSheetId , setCurrentSheetId] = useState('6041c3a0c05097c511c20862');
 
 	return (
 		 <ThemeProvider theme={theme}>
@@ -40,7 +42,9 @@ function App() {
 					<Switch>
 						<Route path='/login' component={Loginpage} />
 						<Route path='/dashboard' component={Dashboard} />
-						<Route path='/workspace' component={Workspace} />
+						<Route path='/workspace'>
+							<Workspace sheetId = {currentSheetId} />
+						</Route>
 						<Route path='/feed' component={Feed} />
 						<Route
 							path='/'
